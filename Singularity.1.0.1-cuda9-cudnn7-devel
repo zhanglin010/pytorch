@@ -1,0 +1,15 @@
+Bootstrap: docker
+
+From: pytorch/pytorch:1.0.1-cuda9-cudnn7-devel
+
+%post
+  # default mount paths, files
+  mkdir /scratch /data /secure /seq
+
+  # install other packages you want
+  pip install --no-cache-dir seaborn
+  
+  # see https://github.com/sylabs/singularity/issues/1182#issuecomment-381796545
+  touch /usr/bin/nvidia-smi
+  
+  
